@@ -14,8 +14,8 @@ func main() {
 
 func rotate(s []int, position int) []int {
 	r := s[position:]
-	for i := position - 1; i >= 0; i-- {
-		r = append(r, s[i])
+	for _, v := range s[:position] {
+		r = append(r, v)
 	}
 	return r
 }
