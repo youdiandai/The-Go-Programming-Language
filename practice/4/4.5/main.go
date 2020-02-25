@@ -8,20 +8,16 @@ import "fmt"
 
 func main() {
 	a := []string{"s", "a", "a", "s", "d", "z", "a", "z", "v", "w", "w", "a", "a"}
-	removeMultiple(&a)
+	a = removeMultiple(a)
 	fmt.Println(a)
 }
 
-func removeMultiple(a *[]string) {
-	A := *a
-	l := len(A)
-	for i := 0; i < l-1; i++ {
-		prev := A[i]
-		next := A[i+1]
-		if prev == next {
-			A = append(A[:i], A[i+1:]...)
-			l--
+func removeMultiple(a []string) []string {
+	//n := 0
+	for i := 0; i < len(a); i++ {
+		if a[i] == a[i+1] {
+			a = append(a[:i], a[i+1:]...)
 		}
 	}
-	*a = A
+	return a
 }
